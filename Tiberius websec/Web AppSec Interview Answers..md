@@ -11,10 +11,9 @@ aliases:
 ## 1. What is the difference between Web Cache Deception and Web Cache Poisoning?
 ---
 - First off, we need to understand what's a **web cache** (simplified) :
-	Web cache is a mechanism that enables better performance by storing data for later use. The common scenario is, when you have a highly requested file, like `freemoney.php`, you gonna cache it, so the next time an another user requests the file, it will just load it from the cache, instead of loading it again and waste time.
+	Web cache is a mechanism that enables better performance by storing data for later use. The common scenario is, when you have a highly requested file, like `freemoney.php`, you gonna cache it, so the next time an another user requests the file, it will just load it from the cache, instead of loading it again and waste time. Check the image below (Portswigger academy)
 	
-![<b>Web cache</b> poisoning explained](https://www.startpage.com/av/proxy-image?piurl=http%3A%2F%2Fappcheck-ng.com%2Fwp-content%2Fuploads%2FWeb-Cache-Diagram.png&sp=1698393130T986f4ab54aabc144c5e31c9bb2da126a274fb5f9a13dd6928938f1bd2459a0b4)
-
+<img src="https://portswigger.net/web-security/images/caching.svg"><br>
 
 ### Web Cache Deception :
 - It is an attack where the cache gets confused and caches something that was not intended to. In order for this to work, you need :
