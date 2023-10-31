@@ -293,7 +293,7 @@ Also https://tib3rius.com/dom/ of course :P
 
 HTTP Parameter Pollution is an interesting attack, where we basically re-use a parameter to make unexpected results. Exploitation varies from framework/tech used, let's have a look at examples :
 
-![[Pasted image 20231027144351.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231027144351.png?token=GHSAT0AAAAAACJWBMIC5LDPQ7NTJBXCTYMYZKBIFIQ">
 
 If you want to learn more about HPP, I suggest to watch a video by PwnFunction : 
 https://www.youtube.com/watch?v=QVZBl8yxVX0 - Really nice video.
@@ -715,7 +715,7 @@ Also called "dependency injection", because it today's modern world, there are a
 ##### Deserialization 
 - process of converting stream of bytes to a replica of the complex data before serialization.
 
-![[Pasted image 20231028111426.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231028111426.png?token=GHSAT0AAAAAACJWBMID5GFJQILZHNRWBXLOZKBIFGQ">
 https://portswigger.net/web-security/deserialization/
 
 I have hard time grasping the full idea of insecure deserialization, so I will just write something down and use a reference. I am sorry about that.
@@ -910,7 +910,7 @@ There is also an alternative, called **aliases**, which is not in scope for this
 ## 25. What is type juggling, and why does the JSON format help exploit these vulnerabilities?
 
 (PHP) Type juggling is a vulnerability which exploits a LOOSE comparison (`==`), which looks really weird : 
-![[Pasted image 20231028141154.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231028141154.png?token=GHSAT0AAAAAACJWBMIC3R6CX3VPCZCJ2QOUZKBIFKQ">
 
 let's say we have this code for a challenge :
 
@@ -1384,7 +1384,7 @@ It can be detected manually, where we could just observe any functionalities, th
 There are numerous attacks, most known are probably Heartbleed https://heartbleed.com/ & POODLE https://en.wikipedia.org/wiki/POODLE
 
 The problem here is also, that it seems not many people realize TLS and SSL are not the same. TLS is a successor of SSL, and should be used instead.
-![[Pasted image 20231029105917.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029105917.png?token=GHSAT0AAAAAACJWBMIC5TZ2RCXIBYJNTRZ6ZKBIFMA">
 
 
 #### 2) SSL/TLS stripping
@@ -1602,7 +1602,7 @@ I'd recommend them to not serialize user-input data at all.
 I think this is probably one of the most common technique, I already have written about it here : 
 
 I'll just share my extremely artistic talent and draw how it should look : 
-![[Pasted image 20231029184834.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029184834.png?token=GHSAT0AAAAAACJWBMID4TKAJU4M4MBAAVXOZKBIFSQ">
 This is a secure way how to prevent user enumeration via password reset functionality.
 
 ##### 2) Via login/register
@@ -1610,10 +1610,10 @@ This is a secure way how to prevent user enumeration via password reset function
 **Login method**
 
 Suppose we have an application, where you can login (crazy) and register (wow!). The login works via this way : 
-![[Pasted image 20231029183640.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029183640.png?token=GHSAT0AAAAAACJWBMICZK4VKBMEISLIKTAEZKBIFNA"><br>
 This is obviously bad, since we can easily enumerate, which username exists and which not.
-Instead, it should work like this : 
-![[Pasted image 20231029183809.png]]
+Instead, it should work like this : <br>
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029183809.png?token=GHSAT0AAAAAACJWBMICW7SWQOOLBBAKNW7MZKBIFPA"><br>
 See the difference? Now the attacker can't tell, if user exists, or not.
 
 
@@ -1727,10 +1727,10 @@ The same can be used in JSON data, like this :
 
 I will present you a wonderful art of mine (Ignore the empty cookie value)
 
-![[Pasted image 20231030165236.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231030165236.png?token=GHSAT0AAAAAACJWBMICSDVE4J4KS7RXEEKKZKBIFUQ">
 
 Note that between the `headers` and `request body` parts are always two lines of CRLF characters.
-![[Pasted image 20231030165754.png]]
+<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231030165754.png?token=GHSAT0AAAAAACJWBMID5NCXVUCKPKCA5JX6ZKBIFWQ">
 All HTTP defined request methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 HTTP headers - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers 
 	Note that there can be custom headers, in which case you would need to check docs of the creator of the custom header or find out what it does by yourself.
