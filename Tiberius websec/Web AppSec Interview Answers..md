@@ -282,7 +282,7 @@ Also https://tib3rius.com/dom/ of course :P
 
 HTTP Parameter Pollution is an interesting attack, where we basically re-use a parameter to make unexpected results. Exploitation varies from framework/tech used, let's have a look at examples :
 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/527f610c-8d9e-4c22-869e-a8883f22fa70">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/9554c231-d496-4de8-b6d4-c7e66ed8e3dc">
 
 If you want to learn more about HPP, I suggest to watch a video by PwnFunction : 
 https://www.youtube.com/watch?v=QVZBl8yxVX0 - Really nice video.
@@ -704,7 +704,7 @@ Also called "dependency injection", because it today's modern world, there are a
 ##### Deserialization 
 - process of converting stream of bytes to a replica of the complex data before serialization.
 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/94d17071-ad66-4810-b188-1a7062b8672c">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/5d5de36a-2e09-41d0-a4a1-6ee3a0dbb434">
 https://portswigger.net/web-security/deserialization/
 
 I have hard time grasping the full idea of insecure deserialization, so I will just write something down and use a reference. I am sorry about that.
@@ -899,7 +899,7 @@ There is also an alternative, called **aliases**, which is not in scope for this
 ## 25. What is type juggling, and why does the JSON format help exploit these vulnerabilities?
 
 (PHP) Type juggling is a vulnerability which exploits a LOOSE comparison (`==`), which looks really weird : 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/e9f9b606-8d65-43e7-a10d-471b1c580871">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/bada1374-a214-4d61-ae45-4f336df5d489">
 
 let's say we have this code for a challenge :
 
@@ -1367,7 +1367,7 @@ It can be detected manually, where we could just observe any functionalities, th
 There are numerous attacks, most known are probably Heartbleed https://heartbleed.com/ & POODLE https://en.wikipedia.org/wiki/POODLE
 
 The problem here is also, that it seems not many people realize TLS and SSL are not the same. TLS is a successor of SSL, and should be used instead.
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/d3dc0451-1b2d-404d-86a9-3cd3c0415479">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/93469f03-4c82-476b-b08b-a3ea92ac5639">
 
 
 #### 2) SSL/TLS stripping
@@ -1586,7 +1586,7 @@ I'd recommend them to not serialize user-input data at all.
 I think this is probably one of the most common technique, I already have written about it here : 
 
 I'll just share my extremely artistic talent and draw how it should look : 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/aa82c21c-4db1-4b56-98ba-d7887237bab3">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/dc5d4e5e-335b-48e9-accc-05a391ae289f">
 This is a secure way how to prevent user enumeration via password reset functionality.
 
 ##### 2) Via login/register
@@ -1594,10 +1594,10 @@ This is a secure way how to prevent user enumeration via password reset function
 **Login method**
 
 Suppose we have an application, where you can login (crazy) and register (wow!). The login works via this way : 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/b9476729-fd44-44b1-893f-b23a51c0ff90"><br>
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/f3e6e8eb-244c-4117-8c41-bdd2f0d8f778"><br>
 This is obviously bad, since we can easily enumerate, which username exists and which not.
 Instead, it should work like this : <br>
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/4c3452f5-1c48-4fa7-a93a-33b0d55774a7"><br>
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/a2111aa9-994f-4a1c-ba74-fb068ca5939d"><br>
 See the difference? Now the attacker can't tell, if user exists, or not.
 
 
@@ -1711,10 +1711,10 @@ The same can be used in JSON data, like this :
 
 I will present you a wonderful art of mine (Ignore the empty cookie value)
 
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/f973f121-4f49-49b8-92ab-9da1fe857748">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/ac72439e-f91e-4542-8695-a22aba3feb20">
 
 Note that between the `headers` and `request body` parts are always two lines of CRLF characters.
-<img src="https://github.com/x1trap/websec-answers/assets/81029708/eec6073b-5d8b-456d-a954-4e40ef2fc126">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/ef626f9c-7b29-4a09-9a9c-f7d754a7095e">
 All HTTP defined request methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 HTTP headers - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers 
 	Note that there can be custom headers, in which case you would need to check docs of the creator of the custom header or find out what it does by yourself.
