@@ -1244,7 +1244,7 @@ Hashes can also have salt, which adds random value to it and makes it harder to 
 ## 36. Name some ways an attacker might exploit an HTTP Request Smuggling vulnerability.
 
 ####  Access Control
-<a id="access-control"></a> 
+<section id="access_control"></section>
 HRS can lead to bypassing front-end security mechanism by including a "secret" request, that only the backend can see (thus bypasses the front-end check), leading the backend to think everything's fine.
 
 
@@ -1483,7 +1483,7 @@ Encoding for JS contexts -> all non-alphanumeric characters -> unicode.
 
 ## 42. Describe three “403 Forbidden” bypass techniques.
 
-##### 1) HTTP verb tampering
+##### HTTP verb tampering
 - An attack where we are changing HTTP methods (GET,PUT,HEAD,TRACE,...)
 - It can be used to bypass 403 forbidden, as well as HTTP basic auth.
 
@@ -1502,7 +1502,7 @@ Instead of `<Limit>`, we should use `<LimitExcept>`.
 
 
 
-##### 2) Host header injection
+##### Host header injection
 
 We'll basically can play with the `Host` header. But not only that, the server may support any other headers that can change the host, here's a small list : 
 ```
@@ -1521,8 +1521,9 @@ X-ProxyUser-Ip:
 ```
 
 
-#### 3) HTTP Request Smuggling
-- Already explained here : [HRS](#access-control)
+#### HTTP Request Smuggling
+- Already explained here : [Access-control](#access-control)
+
 
 
 #### 4) HTTP version change
