@@ -6,3 +6,6 @@ Click here to get started : <a href="https://github.com/x1trap/websec-answers/bl
 
 
 Tib3rius's socials : <a href="https://www.youtube.com/@Tib3rius" target="_blank" rel="noopener noreferrer">youtube</a> | <a href="https://www.twitch.tv/0xtib3rius" target="_blank" rel="noopener noreferrer">twitch</a> | <a href="https://www.linkedin.com/in/tib3rius/" target="_blank" rel="noopener noreferrer">linkedin</a>
+
+---
+TODO: add linkedin answers
