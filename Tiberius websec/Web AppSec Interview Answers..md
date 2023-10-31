@@ -1812,12 +1812,12 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImhhY2t
 ```
 It uses a weak secret key, that we can brute-force. While we could use `jwt_tool`, I also want to try something different, so let's do it via `hashcat`. Let's save the JWT token into a file and then execute this command :
 
-`hashcat -a 0 -m 16500 jwt.txt wordlist.txt`
+`hashcat -a 0 -m 16500 jwt.txt wordlist.txt`<br>
 
-`-a` - attack mode, in this case it's 0, which is dictionary attack.
-`-m` - hashmode, it's just a digit code for a hash we are going to crack, 16500 is JWT.
-`jwt.txt` - the file with JWT base64 encoded token
-`wordlist.txt` - wordlist
+`-a` - attack mode, in this case it's 0, which is dictionary attack.<br>
+`-m` - hashmode, it's just a digit code for a hash we are going to crack, 16500 is JWT.<br>
+`jwt.txt` - the file with JWT base64 encoded token<br>
+`wordlist.txt` - wordlist<br>
 
 The result :
 
