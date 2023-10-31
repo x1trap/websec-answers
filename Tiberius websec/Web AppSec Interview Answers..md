@@ -992,6 +992,7 @@ Using JWT completely shuts down CSRF attacks, but opens up more attack towards J
 
 
 ## 28. What are 3 negative outcomes (i.e. bad for the tester) that could arise if “OR true” (or similar) is relied on for SQL injection testing? 👀
+I don't really know much about this, but you can check tib3rius's post about it : https://twitter.com/0xTib3rius/status/1616493354006495232
 
 
 
