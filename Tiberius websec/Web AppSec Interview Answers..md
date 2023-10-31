@@ -60,14 +60,14 @@ Portswigger academy has a topic about cache poisoning, with labs included (free!
 
 As told in the description, there are various methods to do it, and we are going to look at some : 
 
-1) **URL token**
+1) **URL token**<br>
 	The easiest one, the sessionID is simply in the URL, user click on the link with valid sessionID, like : `https://freeoscp.net/login?hacker=false&token=IAMTHETOKENYES&redirect=1`. Well, now we wait for the victim to login, since new token is not issued and we know the value, we can successfully login as victim.
 
-2) **via Javascript Injection**
+2) **via Javascript Injection**<br>
 	This method can be used, when the token is not accessed by URL, but rather by a cookie. We can simply use `document.cookie` to change the value of the token and wait for the victim to login.
 	`https://freeoscp.net/login/?what=<script>document.cookie="sessionID=IAMTHETOKENYES";</script>`
 
-3) **via CRLF injection**
+3) **via CRLF injection**<br>
 	When the site is vulnerable to CRLF injection, we can basically make a new headers. In this case, we can use the `Set-Cookie` header. It would look like this : 
 	`https://freeoscp.net/login/?redirect=1&hacker=noob%0d%0aSet-Cookie:<cookie>`
 
