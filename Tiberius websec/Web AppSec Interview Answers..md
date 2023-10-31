@@ -7,7 +7,7 @@
 
 ### Web Cache Deception :
 - It is an attack where the cache gets confused and caches something that was not intended to. In order for this to work, you need :
-	1) Endpoint with private information - the endpoint 
+	1) Endpoint with private information
 	2) User interaction (clicking on a link)
 	3) Obviously cache
 
