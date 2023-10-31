@@ -301,7 +301,7 @@ Content-Type: application/json
 Content-Length: idk
 
 {
-    "hacker" : "nopnopnopnop",
+    "hacker" : "hackerman",
     "leet" : "unfortunately no"
 }
 
@@ -310,14 +310,14 @@ Content-Length: idk
 Now let's say we are going to inject a malicious query, like : 
 ```json
 {
-    "hacker" : "nopnopnopnop",
+    "hacker" : "hackerman",
     "leet" : "unfortunately no' and 1=1 -- -"
 }
 ```
 Sounds cool huh? Well too bad the WAF blocks it. This is when the HPP comes in. We can simply duplicate and see the result : 
 ```json
 {
-    "hacker" : "nopnopnopnop",
+    "hacker" : "hackerman",
     "leet" : "unfortunately no' and 1=1 -- -",
     "leet" : "unfortunately no"
 }
@@ -325,7 +325,7 @@ Sounds cool huh? Well too bad the WAF blocks it. This is when the HPP comes in. 
 or :
 ```json
 {
-    "hacker" : "nopnopnopnop",
+    "hacker" : "hackerman",
     "leet" : "unfortunately no",
     "leet" : "unfortunately no' and 1=1 -- -"
 }
