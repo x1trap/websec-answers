@@ -282,7 +282,7 @@ Also https://tib3rius.com/dom/ of course :P
 
 HTTP Parameter Pollution is an interesting attack, where we basically re-use a parameter to make unexpected results. Exploitation varies from framework/tech used, let's have a look at examples :
 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231027144351.png?token=GHSAT0AAAAAACJWBMIC5LDPQ7NTJBXCTYMYZKBIFIQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/527f610c-8d9e-4c22-869e-a8883f22fa70">
 
 If you want to learn more about HPP, I suggest to watch a video by PwnFunction : 
 https://www.youtube.com/watch?v=QVZBl8yxVX0 - Really nice video.
@@ -704,7 +704,7 @@ Also called "dependency injection", because it today's modern world, there are a
 ##### Deserialization 
 - process of converting stream of bytes to a replica of the complex data before serialization.
 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231028111426.png?token=GHSAT0AAAAAACJWBMID5GFJQILZHNRWBXLOZKBIFGQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/94d17071-ad66-4810-b188-1a7062b8672c">
 https://portswigger.net/web-security/deserialization/
 
 I have hard time grasping the full idea of insecure deserialization, so I will just write something down and use a reference. I am sorry about that.
@@ -899,7 +899,7 @@ There is also an alternative, called **aliases**, which is not in scope for this
 ## 25. What is type juggling, and why does the JSON format help exploit these vulnerabilities?
 
 (PHP) Type juggling is a vulnerability which exploits a LOOSE comparison (`==`), which looks really weird : 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231028141154.png?token=GHSAT0AAAAAACJWBMIC3R6CX3VPCZCJ2QOUZKBIFKQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/e9f9b606-8d65-43e7-a10d-471b1c580871">
 
 let's say we have this code for a challenge :
 
@@ -1313,33 +1313,26 @@ Now, after smuggling the request, whoever will make the next request, will get s
 
 HRS can even lead to web cache deception. The only drawback of this attack, is that there is no way to know what is victim visiting and thus what URL should we go to to capture the cached request with juicy info.
 
-For the sake of simplicity, let's say the victim only browses to `/acc/profile/pictures`, because they're narcissist and obsessed with themselves. 
+For the sake of simplicity, let's say the victim only browses to `/acc/profile/my-face.jpg`, because they're narcissist and obsessed with themselves. 
 
-Now, the source code of the `/acc/profile/pictures` contains valuable information, like email, birthday, whatever. When we add some non-existent stylesheet, for example, it will be cached, since the cache thinks it's just a normal public file. We will make a normal CL.TE HRS request : 
+Now, the source code of the `/acc/profile/` contains valuable information, like email, birthday, whatever. If we smuggle a request, which points to `/acc/profile` and the narcissisist user requests `/acc/profile/my-face.jpg`, actually the `/acc/profile` will be cached into my-face.jpg endpoint, so as we know where the user goes, we can happily load the endpoint and enjoy our stolen data. The only downside of this attack in a real scenario is that we don't know where the user makes request, which makes it difficult for us to find out the location where the cached secret info is.
 
 ```HTTP
-POST / HTTP/1.1 
+POST / HTTP/1.1
 Host: freeoscp.net
-Content-Type: application/x-www-form-urlencoded 
-Content-Length: 47
-Transfer-Encoding: chunked 
+Content-Length: 38
+Transfer-Encoding: chunked
 
 
 0
 
 
-GET /acc/profile/pictures/non-existent.css HTTP/1.1
-Host: freeoscp.net
-Content-Type: application/x-www-form-urlencoded 
-Content-Length: 5
-
-
-x=0
+GET /acc/profile HTTP/1.1
+Foo: X
 
 
 ```
 
-When the narcissistic user makes a request, he will actually request `/acc/profile/pictures/non-existent.css`, cache the response and we then can 
 
 ## 37. What is Server-Side Request Forgery and how can it be detected & exploited?
 
@@ -1373,7 +1366,7 @@ It can be detected manually, where we could just observe any functionalities, th
 There are numerous attacks, most known are probably Heartbleed https://heartbleed.com/ & POODLE https://en.wikipedia.org/wiki/POODLE
 
 The problem here is also, that it seems not many people realize TLS and SSL are not the same. TLS is a successor of SSL, and should be used instead.
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029105917.png?token=GHSAT0AAAAAACJWBMIC5TZ2RCXIBYJNTRZ6ZKBIFMA">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/d3dc0451-1b2d-404d-86a9-3cd3c0415479">
 
 
 #### 2) SSL/TLS stripping
@@ -1592,7 +1585,7 @@ I'd recommend them to not serialize user-input data at all.
 I think this is probably one of the most common technique, I already have written about it here : 
 
 I'll just share my extremely artistic talent and draw how it should look : 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029184834.png?token=GHSAT0AAAAAACJWBMID4TKAJU4M4MBAAVXOZKBIFSQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/aa82c21c-4db1-4b56-98ba-d7887237bab3">
 This is a secure way how to prevent user enumeration via password reset functionality.
 
 ##### 2) Via login/register
@@ -1600,10 +1593,10 @@ This is a secure way how to prevent user enumeration via password reset function
 **Login method**
 
 Suppose we have an application, where you can login (crazy) and register (wow!). The login works via this way : 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029183640.png?token=GHSAT0AAAAAACJWBMICZK4VKBMEISLIKTAEZKBIFNA"><br>
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/b9476729-fd44-44b1-893f-b23a51c0ff90"><br>
 This is obviously bad, since we can easily enumerate, which username exists and which not.
 Instead, it should work like this : <br>
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231029183809.png?token=GHSAT0AAAAAACJWBMICW7SWQOOLBBAKNW7MZKBIFPA"><br>
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/4c3452f5-1c48-4fa7-a93a-33b0d55774a7"><br>
 See the difference? Now the attacker can't tell, if user exists, or not.
 
 
@@ -1636,7 +1629,7 @@ If the response is different from 403 forbidden, such as 404 not found, we can t
 
 ## 48. Name some techniques to detect blind/inferential command injection vulnerabilities.
 
-##### 1) SLEEP
+#### 1) SLEEP
 
 `sleep` is a command that is actually used in UNIX systems (OS command injection, as well as in SQL (SQL injection). How it works? It's simple, we issue a sleep command to whatever seconds you want (let's say 5) and if the response load time is 5 seconds, it's vulnerable.
 
@@ -1644,7 +1637,7 @@ If the response is different from 403 forbidden, such as 404 not found, we can t
 **SQL injection** - `page='AND SLEEP(5)`
 
 
-##### 2) OOB method (out-of-band)
+#### 2) OOB method (out-of-band)
 
 With this method, we make the target to make a request to our controlled server, to prove that it is, in fact, vulnerable. This can be done for blind SSRF, Command injection, XXE and also blind XSS.
 
@@ -1658,7 +1651,7 @@ We can also try `gopher://`, which can turn blind SSRF into juicy RCE. If gopher
 
 **OS command injection** - `127.0.0.1 ; curl our-server.net`
 
-**Blind XXE
+**Blind XXE**
 
 The exploit works like blind SSRF, we just need to add a little bit of XML along the way : 
 ```xml
@@ -1717,10 +1710,10 @@ The same can be used in JSON data, like this :
 
 I will present you a wonderful art of mine (Ignore the empty cookie value)
 
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231030165236.png?token=GHSAT0AAAAAACJWBMICSDVE4J4KS7RXEEKKZKBIFUQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/f973f121-4f49-49b8-92ab-9da1fe857748">
 
 Note that between the `headers` and `request body` parts are always two lines of CRLF characters.
-<img src="https://raw.githubusercontent.com/x1trap/websec-answers/main/Tiberius%20websec/Pasted%20image%2020231030165754.png?token=GHSAT0AAAAAACJWBMID5NCXVUCKPKCA5JX6ZKBIFWQ">
+<img src="https://github.com/x1trap/websec-answers/assets/81029708/eec6073b-5d8b-456d-a954-4e40ef2fc126">
 All HTTP defined request methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 HTTP headers - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers 
 	Note that there can be custom headers, in which case you would need to check docs of the creator of the custom header or find out what it does by yourself.
