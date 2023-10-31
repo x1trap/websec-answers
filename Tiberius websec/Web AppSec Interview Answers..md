@@ -1,13 +1,3 @@
----
-aliases:
----
----
-**More in-depth answers for websec interview questions by tib3rius : https://tib3rius.com/interview-questions**
-
-
-
-
-
 ## 1. What is the difference between Web Cache Deception and Web Cache Poisoning?
 ---
 - First off, we need to understand what's a **web cache** (simplified) :
