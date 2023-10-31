@@ -1629,7 +1629,7 @@ If the user exists, the webserver will throw either 200 OK (We can see the profi
 We can still simply try to write non-existent user, like `/account/4fewrfwefewfew46few64`.
 
 If the response is different from 403 forbidden, such as 404 not found, we can then easily fuzz it, via `ffuf` for example.
-`ffuf -w usernames.txt -u https://freeoscp.net/account/FUZZ -fw 404
+`ffuf -w usernames.txt -u https://freeoscp.net/account/FUZZ -fw 404`
 
 
 
