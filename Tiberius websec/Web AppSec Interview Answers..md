@@ -811,12 +811,12 @@ We can use the `FFUF` tool to discover existent parameters :
 
 `ffuf -w params.txt -u https://freeoscp.net/addUser -X POST -d "userid=hackerman&password=secure&email=hackerman@freeoscp.net&FUZZ=true" -fc 500` 
 
-Command explained : 
-`-w params.txt` - specifying the wordlist with parameters (isAdmin is included in the wordlist)
-`-u <url>` - the URL and endpoint we are attacking
-`-X POST` - HTTP method
-`-d <data>` - POST data we are sending, notice the "FUZZ" word, which is needed so the tool knows where the payload values should be.
-`-fc 500` - filtering the `500` status code, so we can only see positive results.
+Command explained : <br>
+`-w params.txt` - specifying the wordlist with parameters (isAdmin is included in the wordlist)<br>
+`-u <url>` - the URL and endpoint we are attacking<br>
+`-X POST` - HTTP method<br>
+`-d <data>` - POST data we are sending, notice the "FUZZ" word, which is needed so the tool knows where the payload values should be.<br>
+`-fc 500` - filtering the `500` status code, so we can only see positive results.<br>
 
 After some waiting, we will see a result, which will tell us that `isAdmin=true` returns 200.
 
