@@ -1,6 +1,6 @@
 # websec-answers
 ---
-**More in-depth answers for websec interview questions by tib3rius : https://tib3rius.com/interview-questions**. I tried to answer all of the questions, although bear in mind there may be mistakes. If you're up to read it, have fun and hope you learn something new. I apologize for any mistakes and will try to correct them, if found. 
+**More in-depth answers for websec interview questions by tib3rius : https://tib3rius.com/interview-questions**. I tried to answer all of the questions, although bear in mind there may be mistakes. If you're up to read it, have fun and hope you learn something new. I apologize for any mistakes and will try to correct them, if found. I will also try to include my answers to questions, which were/are shared via linkedin.
 
 Click here to get started : <a href="https://github.com/x1trap/websec-answers/blob/main/Tiberius%20websec/Web%20AppSec%20Interview%20Answers..md">CLICK</a>
 
