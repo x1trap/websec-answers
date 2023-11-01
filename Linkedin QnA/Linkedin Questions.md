@@ -250,8 +250,8 @@ Now, one of the interesting PHP wrappers for us, that would allow us to EXECUTE 
 - Is not enabled by default and is rare
 - syntax is trivial - `expect://ls` executes the `ls` command.
 
-`data://` - <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/README.md#wrapper-data">Exploitation</a>
-`input://` - <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/README.md#wrapper-input">Exploitation</a>
+`data://` - <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/README.md#wrapper-data">Exploitation</a><br>
+`input://` - <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/File%20Inclusion/README.md#wrapper-input">Exploitation</a><br>
 
 And now for the better part -> Using PHP filter chain.
 
