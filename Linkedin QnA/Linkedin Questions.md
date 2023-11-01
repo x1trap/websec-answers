@@ -271,6 +271,8 @@ If we have a vulnerable file upload, we can simply upload a file with a webshell
 Let's say we upload a `shell.jpg`, with `<?php system($_GET['cmd']); ?>` contents. The file upload only check the extension and nothing else. Now, loading it standardly will just show the contents of the file, but via the LFI, we could actually get the shell to execute. We could simply request
 `https://freeoscp.net?page=/path/to/shell/shell.jpg?cmd=id` and get command execution.
 
+I recommend trying out LFI-labs by paralax : https://github.com/paralax/lfi-labs
+
 
 
 
