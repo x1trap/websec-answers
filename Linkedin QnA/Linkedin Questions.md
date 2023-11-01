@@ -4,7 +4,8 @@
 ## Question 56: What are some common OAuth 2.0 flaws & misconfigurations?
 
 https://portswigger.net/web-security/oauth
-##### redirect_uri bypass
+
+**redirect_uri bypass**
 
 `code`, which haves the authorization code is appended behind the URI, which means that if an attacker can change the URI, it will also leak the `code` to the attacker. If successful, it can lead to Account takover.
 
