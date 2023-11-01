@@ -6,10 +6,11 @@
 https://portswigger.net/web-security/oauth
 ##### redirect_uri bypass
 
-`code`, which haves the authorization code is appended behind the URI, which means that if an attacker can change the URI, it will also leak `code` to the attacker. If successful, it can lead to Account takover.
+`code`, which haves the authorization code is appended behind the URI, which means that if an attacker can change the URI, it will also leak the `code` to the attacker. If successful, it can lead to Account takover.
 
 **examples:**
-Open redirect -> `/callback?redirect_uri=https://evil.com`
+Open redirect -> `/callback?client_id=1337&redirect_uri=https://evil.com`<br>
+https://portswigger.net/web-security/oauth/lab-oauth-stealing-oauth-access-tokens-via-an-open-redirect
 
 **Host header poisoning** 
 - This really interesting idea was I believe invented by ngalog. He edited the `Host` header to this : 
