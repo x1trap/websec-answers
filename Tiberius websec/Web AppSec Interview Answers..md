@@ -1098,7 +1098,7 @@ There are more ways, but the question say "5", so I guess this is enough :-)
 
 Prototype pollution is a javascript-based vulnerability. In order to understand it, we firstly need to understand what prototypes and object inheritance are and how do they work.
 
-**Object**
+**Object**<br>
 Object is a collection of ˙key:value˙, which are called "properties".
 
 ```js
@@ -1124,7 +1124,7 @@ const food = {
 	}
 }
 ```
-**Prototypes**
+**Prototypes**<br>
 Every object is assigned to it's prototype (built-in), for example : 
 
 ```js
@@ -1134,7 +1134,7 @@ const number = 1337 // Number.prototype
 const array = [] // Array.prototype
 const object = {} // Object.prototype
 ```
-**object inheritance**
+**Object inheritance**<br>
 Whenever you reference a property, like `food.id`, the JS engine will try to find it inside the Object. If not found, it will then try to find it from `Object.prototype`. Let's have an example in devtools console, where we create empty objects with no properties created.
 
 1)<br>
