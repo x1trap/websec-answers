@@ -1096,7 +1096,61 @@ There are more ways, but the question say "5", so I guess this is enough :-)
 
 ## 30. What is prototype pollution, and what exploits could it lead to with both client / server-side variants?
 
-Prototype pollution is a javascript-based vulnerability.
+Prototype pollution is a javascript-based vulnerability. In order to understand it, we firstly need to understand what prototypes and object inheritance are and how do they work.
+
+**Object**
+Object is a collection of ˙key:value˙, which are called "properties".
+
+```js
+const food = {
+	good: "no",
+	expire: "tomorrow",
+	id: 1337
+}
+```
+The object here is `food`, while the inside is just the already mentioned properties. We can call them via <br>
+`food.good // no`<br>
+`food.id // 1337`<br>
+and so on.
+
+Properties can also have functions, like : 
+```js
+const food = {
+	good: "no"
+	expire: "tomorrow"
+	id: 1337
+	execute: function() {
+		//code here
+	}
+}
+```
+**Prototypes**
+Every object is assigned to it's prototype (built-in), for example : 
+
+```js
+// we use Object.getPrototypeOf()
+const string = "" // String.prototype
+const number = 1337 // Number.prototype
+const array = [] // Array.prototype
+const object = {} // Object.prototype
+```
+**object inheritance**
+Whenever you reference a property, like `food.id`, the JS engine will try to find it inside the Object. If not found, it will then try to find it from `Object.prototype`. Let's have an example in devtools console, where we create empty objects with no properties created.
+
+1)<br>
+![image](https://github.com/x1trap/websec-answers/assets/81029708/34cf0faa-e669-495e-b6b5-430e5580bf76)
+
+2)<br>
+![image](https://github.com/x1trap/websec-answers/assets/81029708/11e3ab69-c915-4fe9-8e21-b3f4b1bde042)
+
+**Prototype pollution**<br>
+https://portswigger.net/web-security/prototype-pollution //will add later, better explained here anyway
+
+Client-side prototype pollution will lead to XSS, whereas server-side can lead to RCE.
+
+SSPP to RCE (nodeJS)<br>
+- https://book.hacktricks.xyz/pentesting-web/deserialization/nodejs-proto-prototype-pollution/prototype-pollution-to-rce<br>
+- https://www.sonarsource.com/blog/blitzjs-prototype-pollution/<br>
 
 
 
