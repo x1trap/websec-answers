@@ -369,7 +369,7 @@ For Blind XSS example, you could use ez.pe, or have your own server and send a p
 
 
 ### 4) HTTP Request smuggling
-I'd like to write here, but well... **albinowax** already did it before me and I believe you will learn more from him than me.  Here's the link : https://portswigger.net/research/making-http-header-injection-critical-via-response-queue-poisoning
+I'd like to write here, but well... **Albinowax** already did it before me and I believe you will learn more from him than me.  Here's the link : https://portswigger.net/research/making-http-header-injection-critical-via-response-queue-poisoning
 
 Make sure to read it and do the LAB to get some practice.
 https://portswigger.net/web-security/request-smuggling/advanced#request-smuggling-via-crlf-injection
