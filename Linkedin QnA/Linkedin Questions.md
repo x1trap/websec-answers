@@ -126,7 +126,7 @@ This tool helps us in the process of making (sub)domain, that point randomly bet
 `First IP` - IP that is not blacklisted.<br>
 `Second IP` - The IP we want to access, can be any private IP, localhost, EC2 IP,...<br>
 `The domain` - The generated domain that we will use against the target.<br>
-Note that it doesn't matter if the first IP will be the one we want to infiltrate, or non-blacklisted one.<br>
+Note that it doesn't matter if the first IP will be the one we want to infiltrate, or non-blacklisted one. The domain is not randomly generated, it is `<ipv4-base16>.<ipv4-base16>.rbndr.us`<br>
 
 
 After creating a domain, we can actually check how it works. On linux, you can simply use `host <hostname>` command, whereas on windows, `nslookup <hostname>` works just fine.
